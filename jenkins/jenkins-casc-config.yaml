@@ -1,0 +1,45 @@
+jenkins:
+  systemMessage: |
+    This is Verifa's Tutorial Jenkins Instance... Welcome!
+  numExecutors: 0
+  scmCheckoutRetryCount: 2
+  mode: NORMAL
+
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: "admin"
+          password: "admin"
+  authorizationStrategy: loggedInUsersCanDoAnything
+
+  slaveAgentPort: 50000
+  agentProtocols:
+  - "JNLP4-connect"
+  - "Ping"
+
+  nodes:
+  - permanent:
+      labelString: "docker"
+      launcher:
+        jnlp:
+          workDirSettings:
+            disabled: false
+            failIfWorkDirIsMissing: false
+            internalDir: "remoting"
+      mode: EXCLUSIVE
+      name: "docker-agent"
+      numExecutors: 1
+      remoteFS: "/home/jenkins/agent"
+
+credentials:
+  system:
+    domainCredentials:
+      - domain:
+        credentials:
+          - usernamePassword:
+              scope: SYSTEM
+              id: admin
+              username: admin
+              password: admin
+              

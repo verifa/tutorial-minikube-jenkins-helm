@@ -1,0 +1,29 @@
+CodeBar DevOps Workshop
+
+Goal:
+- introduce concepts of DevOps and get hands-on experience
+- DevOps is an acronym for Development Operations, with the aim of bridging any gaps between development and operations teams
+- the definition has grown to include practices such as: agile, CI, CD, infrastructure as code, monitoring, AI
+- ** short history of DevOps
+
+Prerequisites:
+- Docker
+- Docker Compose
+- Can we run on Katacoda? Or any other environment?
+
+
+Tutorial Technology:
+- Jenkins: CI/CD tool
+- Docker: container technology
+
+Steps:
+1. Setup Jenkins
+    a. Setup Jenkins master, with/out agents, docker-compose, etc.... Probably provide pre-canned Docker image(s)
+
+2. Create Jenkins pipeline:
+    a. Can we do this through the UI? i.e. generate the Jenkinsfile?
+    b. Jenkinsfile would check-out code and run build... mention that best practice is to store Jenkinsfile in source code
+    c. (optional) some tests... put results in Jenkins...
+    d. (optional) archive build outputs
+
+3. After thing summary... how this looks in a real project

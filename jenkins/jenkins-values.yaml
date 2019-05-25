@@ -1,0 +1,45 @@
+
+master:
+  adminUser: "admin"
+  adminPassword: "admin"
+  serviceType: NodePort
+  nodePort: 32000
+  
+  installPlugins:
+    - kubernetes
+    - workflow-job
+    - workflow-aggregator
+    - credentials-binding
+    - git
+
+  # JCasC:
+  #   enabled: true
+  #   pluginVersion: 1.15
+  #   supportPluginVersion: 1.15
+
+
+  
+agent:
+  enabled: true
+  resources:
+    requests:
+      cpu: "200m"
+      memory: "256Mi"
+    limits:
+      cpu: "200m"
+      memory: "256Mi"
+
+persistence:
+  enabled: true
+  storageClass:
+  annotations: {}
+  accessMode: "ReadWriteOnce"
+  size: "8Gi"
+  volumes:
+  - name: casc-config
+    configMap:
+      name: jenkins-casc-config
+  mounts:
+  - name: casc-config
+    mountPath: /var/jenkins_home/casc_configs/jenkins-casc-config.yaml
+    subPath: jenkins-casc-config.yaml
